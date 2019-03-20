@@ -1,0 +1,3 @@
+[submodule "leihs-ui-src"]
+	path = leihs-ui-src
+	url = https://github.com/leihs/leihs-ui.git

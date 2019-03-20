@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euxo
+
+WE=$PWD
+
+cd $WE/leihs-ui-src
+
+# test -d node_modules && npm i || { npm ci || npm i ;}
+# npm run build
+
+
+MESSAGE=$(git log -n 1 --format='%s')
+
+cd $WE
+
+cp leihs-ui-src/dist/leihs-ui-client-side.js leihs-ui-client-side.js
+cp leihs-ui-src/dist/leihs-ui-server-side.js leihs-ui-server-side.js
+cp leihs-ui-src/bootstrap-theme-leihs/build/bootstrap-leihs.css bootstrap-leihs.css
+cp leihs-ui-src/bootstrap-theme-leihs/build/bootstrap-leihs.js bootstrap-leihs.js
+
+git add leihs-ui-client-side.js leihs-ui-server-side.js bootstrap-leihs.css bootstrap-leihs.js
+git add leihs-ui-src
+
+git commit -m "$MESSAGE"
